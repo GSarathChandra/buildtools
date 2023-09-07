@@ -10,13 +10,13 @@ prunings.
 Build a binary and put it into your $GOPATH/bin:
 
 ```bash
-go install github.com/bazelbuild/buildtools/unused_deps@latest
+go install github.com/bazelbuild/buildtools/unused_deps2@latest
 ```
 
 ## Usage
 
 ```shell
-unused_deps TARGET...
+unused_deps2 TARGET...
 ```
 
 Here, `TARGET` is a space-separated list of Bazel labels, with support for `:all` and `...`
