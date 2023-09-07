@@ -242,9 +242,9 @@ func getDepsExpr(buildFileName string, ruleName string) build.Expr {
 		log.Printf("%s not found in %s", ruleName, buildFileName)
 		return nil
 	}
-	depsExpr := rule.Attr("deps")
+	depsExpr := rule.Attr("dependencies")
 	if depsExpr == nil {
-		log.Printf("no deps attribute for %s in %s", ruleName, buildFileName)
+		log.Printf("no dependencies attribute for %s in %s", ruleName, buildFileName)
 	}
 	return depsExpr
 }
@@ -355,8 +355,8 @@ func main() {
 	}
 	queryCmd = append(queryCmd, blazeFlags...)
 	queryCmd = append(
-		queryCmd, fmt.Sprintf("'kind(\"(kt|java|android)_*\", %s)'", strings.Join(targetPatterns, " + ")))
-
+		queryCmd, fmt.Sprintf("kind('(kt|java|android)_*', %s)", strings.Join(targetPatterns, " + ")))
+	
 	log.Printf("running: %s %s", *buildTool, strings.Join(queryCmd, " "))
 	queryOut, err := cmdWithStderr(*buildTool, queryCmd...).Output()
 	if err != nil {
