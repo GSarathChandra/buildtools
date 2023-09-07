@@ -363,7 +363,7 @@ func main() {
 		log.Print(err)
 	}
 	if len(queryOut) == 0 {
-		fmt.Fprintln(os.Stderr, "found no targets of kind (kt|java|android)_*")
+		fmt.Fprintln(os.Stderr, "found no targets")
 		usage()
 	}
 
